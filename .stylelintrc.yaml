@@ -1,0 +1,333 @@
+---
+extends:
+  - stylelint-config-sass-guidelines
+  - stylelint-config-standard-scss
+  - stylelint-config-recommended-vue/scss
+rules:
+
+  # 基礎設定 //
+
+  # 縮排一定是 2 個空白
+  indentation: 2
+
+  # 一定使用雙引號
+  string-quotes: "double"
+
+  # 禁止多餘的分號
+  no-extra-semicolons: true
+
+  # 相同選擇器一定不能重複設定
+  no-duplicate-selectors: true
+  
+  # 選擇器的權重順序一定為: 小 -> 大
+  no-descending-specificity: true
+  
+  # 樣式表結束的最後不需要再增加 1 個空白行
+  no-missing-end-of-source-newline: null
+
+  #
+  no-irregular-whitespace: true
+
+  # @import 規則放置位置 (參照 stylelint)
+  no-invalid-position-at-import-rule: true
+
+  # 小數點前面一定不要包含零
+  number-leading-zero: never
+
+  # 一定不能超過 2 個空白行
+  max-empty-lines: 2
+
+  # 如果使用巢狀選擇器，一定不能超過 3 層
+  max-nesting-depth: 3
+
+  # css 屬性內容，逗號之後一定要有 1 個空白字元
+  value-list-comma-space-after: always
+
+  # 長度為 0 時一定不要加單位
+  length-zero-no-unit: true
+
+  # 樣式簡寫 一定不可有多餘的值
+  shorthand-property-no-redundant-values: true
+
+  # scss 作為引入檔的命名規範
+  scss/at-import-partial-extension-blacklist: scss
+
+  # 關閉$變數命名規則(第三方套件變數有覆寫需求)
+  scss/dollar-variable-pattern: null
+
+  # 不檢查全域方法
+  scss/no-global-function-names: null
+
+  
+
+  # 規則 //
+
+  # 每個規則宣告之間一定要用空白行隔開
+  rule-empty-line-before:
+  - always
+  - except:
+    - after-single-line-comment
+  
+
+
+  # At-規則 //
+
+  # @規則名稱一定為小寫
+  at-rule-name-case: lower
+
+  # 在宣告＠規則名稱之後一定要有 1 個空白字元
+  at-rule-name-space-after: always
+
+  # 在宣告＠規則之前一定要有 1 個空白
+  at-rule-empty-line-before: always
+
+  # 為兼容 scss 函数，不驗證 @ 未知的名字
+  at-rule-no-unknown: null
+
+  
+
+
+
+  #多行註解 //
+
+  #
+  comment-empty-line-before: null
+
+  # 註解內字元兩側一定要有空白字元 /* 正確範例 */
+  comment-whitespace-inside: always
+
+
+
+  # 顏色 //
+  
+  # 16 進位色彩名稱一定使用小寫
+  color-hex-case: lower
+
+  # 一定要用 16 進位色彩說明顏色，一定不能用英文單字
+  color-named: never
+
+  # 16 進位色彩設定一定要合法有效
+  color-no-invalid-hex: true
+
+  # 16 進位色彩一定使用縮寫
+  color-hex-length: short
+
+
+
+  # 字體重量 //
+
+  # 字體重量值一定數字表述
+  #font-weight-notation: numeric
+
+
+
+  # 字型 //
+
+  #
+  font-family-no-missing-generic-family-keyword: null
+
+
+
+  # 宣告區塊 // .hello { ...我是宣告區塊... }
+
+  # css 屬性一定不能重複定義
+  declaration-block-no-duplicate-properties: true
+
+  # 每一行只能有 1 個 css 屬性設定
+  declaration-block-single-line-max-declarations: 1
+
+  # 在宣告區塊裡，分號之前一定不留空白字元
+  declaration-block-semicolon-space-before: never
+  
+  # 在宣告區塊裡，分號之後一定換下一行
+  declaration-block-semicolon-newline-after: always
+
+
+
+  # 區塊 //
+
+  # 選擇器裡頭的 css 屬性一定要定義
+  block-no-empty: true
+
+  # 規則宣告的開始左大括弧 { 前一定要有 1 個空白字元 
+  block-opening-brace-space-before: always
+
+  # 單行的規則宣告在結束一定要有 1 個空白字元才接右大括弧 } 
+  block-closing-brace-space-before: always-single-line
+
+  #
+  block-closing-brace-newline-before: always-multi-line
+
+  # 規則宣告的結束右大括弧 } 獨自一行。
+  block-closing-brace-newline-after: always
+
+
+
+  # 宣告 //
+
+  # 在宣告感嘆號之前一定要有 1 個空白字元
+  declaration-bang-space-before: always
+
+  # css 屬性名稱冒號後一定要有 1 個空白字元
+  declaration-colon-space-after: always
+
+  # 宣告樣式間一定不要留空白行
+  declaration-empty-line-before:
+    - never
+    - except:
+      - after-comment
+  
+
+
+  
+  # 選擇器 //
+
+  # class 命名一定是小寫並允許使用連字符號
+  selector-class-pattern: '^([a-z0-9]*)(-[a-z0-9]*)*(__[a-z0-9-]*)*$'
+
+  # id 命名一定是小寫並允許使用連字符號
+  selector-id-pattern: '^([a-z0-9]*)(-[a-z0-9]*)*(__[a-z0-9]*)*$'
+
+  # 組合選擇器符號後面一定要有 1 個空白字元
+  selector-combinator-space-after: always
+
+  # 組合選擇器符號前面一定要有 1 個空白字元
+  selector-combinator-space-before: always
+
+  # 偽元素一定使用 2 個冒號來表示
+  selector-pseudo-element-colon-notation: double
+
+  # 選擇器層級最大限制
+  selector-max-compound-selectors: null
+
+  # 後代選擇器之間只能有 1 個空白字元 (Q):沒有空白格也成立
+  selector-descendant-combinator-no-non-space: true
+
+  # 禁止使用未知(未定義或typo)的選擇器
+  selector-type-no-unknown: true
+
+  # 最多只能使用 1 個全域選擇器(*) 
+  selector-max-universal: 1
+
+  # id 選擇器最多只能疊 2 個 -->應該避免使用 id 選擇器
+  selector-max-id: 0
+
+  # 允許元素選擇器開頭 --> true(不允許)
+  selector-no-qualifying-type: true
+
+  selector-pseudo-element-no-unknown: [
+    true,
+    {
+      ignorePseudoElements: ['v-deep']
+    }
+  ]
+
+
+  # 多個選擇器 //
+  
+  # 在一個規則宣告中，若同時使用多個選擇器時，一定讓每個選擇器各佔 1 行
+  selector-list-comma-newline-after: always
+  
+  
+  
+  # 屬性 //
+  
+  # css 屬性名稱一定要是有效的
+  property-no-unknown: true
+
+  # 可以使用前綴屬性
+  property-no-vendor-prefix: null
+
+
+
+  # 排序// 
+
+  # css 屬性不要按照字母順序排序
+  order/properties-alphabetical-order: null
+
+  # css 目標屬性排序（自訂）
+  order/properties-order: [
+    "content",
+    "position",
+    "top",
+    "right",
+    "bottom",
+    "left",
+    "display",
+    "grid-template",
+    "grid-template-columns",
+    "grid-template-rows",
+    "grid-template-areas",
+    "grid-area",
+    "grid-column",
+    "grid-row",
+    "flex-direction",
+    "flex-wrap",
+    "justify-content",
+    "align-content",
+    "justify-items",
+    "align-items",
+    "justify-self",
+    "align-self",
+    "grid",
+    "flex",
+    "float",
+    "clear",
+    "overflow",
+    "overflow-x",
+    "overflow-y",
+    "padding",
+    "padding-top",
+    "padding-right",
+    "padding-bottom",
+    "padding-left",
+    "margin",
+    "margin-top",
+    "margin-right",
+    "margin-bottom",
+    "margin-left",
+    "width",
+    "min-width",
+    "max-width",
+    "height",
+    "min-height",
+    "max-height",
+    "gap",
+    "font-family",
+    "font-size",
+    "font-weight",
+    "text-align",
+    "text-justify",
+    "text-indent",
+    "text-overflow",
+    "text-decoration",
+    "white-space",
+    "line-height",
+    "outline",
+    "color",
+    "background",
+    "background-color",
+    "background-size",
+    "background-position",
+    "background-repeat",
+    "background-clip",
+    "border",
+    "border-style",
+    "border-width",
+    "border-color",
+    "border-top",
+    "border-right",
+    "border-bottom",
+    "border-left",
+    "border-radius",
+    "opacity",
+    "filter",
+    "box-shadow",
+    "text-shadow",
+    "list-style-type",
+    "list-style",
+    "visibility",
+    "z-index",
+    "transition",
+    "cursor",
+  ]
