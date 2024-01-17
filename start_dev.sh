@@ -12,8 +12,7 @@ fi
 # 取得當前 Node.js 版本
 current_version=$(nvm current)
 
-# 檢查 Node.js 版本 是否在 18
-# 检查当前版本是否为 18
+# 檢查當前 node 版本是否在 18
 if [[ $current_version == v18* ]]
 then
     echo "Already using Node.js version 18."
@@ -35,6 +34,6 @@ fi
 echo "Installing dependencies..."
 bun install
 
-# 啟動伺服器
+# 啟動本地端伺服器
 echo "Starting development server..."
 bun dev
