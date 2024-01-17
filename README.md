@@ -4,7 +4,7 @@
 
 ## Setup
 
-確保安裝套件工具包
+安裝套件工具包
 
 ```bash
 # bun
@@ -34,4 +34,20 @@ bun run build
 ```bash
 # bun
 bun run preview
+```
+
+
+## Node.js version
+
+```bash
+node 版本 v18.0.0 +
+```
+
+
+## 啟動開發指令
+
+此腳本假設您的系統已安裝 `nvm` 和 `bun`
+
+```bash
+./start_dev.sh
 ```
